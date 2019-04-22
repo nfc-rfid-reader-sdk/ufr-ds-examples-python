@@ -7,7 +7,7 @@ import ErrorCodes
 import msvcrt
 from Functions import *
 import globals
-
+import string
 ########################################################################## 
 # dll loading
 if sys.platform.startswith('win32'):
@@ -353,9 +353,9 @@ if __name__ == '__main__':
     print("1. Simple reader open")
     print("2. Advanced reader open")
     input = raw_input()
-    input = str(input)
-    print(raw_input)
-    if raw_input == "1":
+    input = int(input)
+    print(input)
+    if input == 1:
         status = ReaderOpen()
     else:
         print("Enter reader type:")
@@ -369,6 +369,7 @@ if __name__ == '__main__':
         port_interface = raw_input()
         
         
+        
         print("Enter additional argument:")
         arg = raw_input()
         
@@ -378,7 +379,7 @@ if __name__ == '__main__':
         elif port_interface == "T":
             port_interface = 84
         else:
-            port_interface = atoi(port_interface)
+            port_interface = int(port_interface)
             
         status = ReaderOpenEx(reader_type, port_name, port_interface, arg)
     
